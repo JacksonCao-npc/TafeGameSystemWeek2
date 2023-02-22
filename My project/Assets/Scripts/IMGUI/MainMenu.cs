@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
     public Vector2 screenScale;
     public bool toggle;
     public bool isPlaying;
+    
     void OnGUI()
     {
         screenScale.x = Screen.width / 16;
@@ -27,30 +28,33 @@ public class MainMenu : MonoBehaviour
         }
 
 
-        GUI.Box(new Rect(5 * screenScale.x, 0.5f * screenScale.y, 6* screenScale.x, 8 * screenScale.y), "");
-        GUI.Box(new Rect(5.5f * screenScale.x, 0.75f * screenScale.y, 5 * screenScale.x, 0.75f * screenScale.y), "Title");
+        GUI.Box(new Rect(0.25f * screenScale.x, 0.25f * screenScale.y, 3* screenScale.x, 5 * screenScale.y), "");
+        
        
 
-       if(isPlaying)
-        {
-            GUI.Box(new Rect(6 * screenScale.x, 2 * screenScale.y, 4 * screenScale.x, 5 * screenScale.y), "isPlaying");
-          //  GUI.Button(new Rect(6 * screenScale.x, 7 * screenScale.y, 4 * screenScale.x, 1 * screenScale.y), "Exit");
-            if(GUI.Button(new Rect(6 * screenScale.x, 7 * screenScale.y, 4 * screenScale.x, 1 * screenScale.y), "Exit"))
-            {
-                isPlaying =false;
-            }
-        }
+
 
         if (!isPlaying)
         {
             if (GUI.Button(new Rect(6 * screenScale.x, 3 * screenScale.y, 4 * screenScale.x, 1 * screenScale.y), "Play "))
             {
                 isPlaying = true;
+
+                if (isPlaying)
+                {
+                    GUI.Box(new Rect(6 * screenScale.x, 2 * screenScale.y, 4 * screenScale.x, 5 * screenScale.y), "isPlaying");
+
+            if (GUI.Button(new Rect(6 * screenScale.x, 7 * screenScale.y, 4 * screenScale.x, 1 * screenScale.y), "Exit"))
+                    {
+                        isPlaying = false;
+                    }
+                }
             }
             GUI.Box(new Rect(6 * screenScale.x, 5 * screenScale.y, 4 * screenScale.x, 1 * screenScale.y), "Option");
             GUI.Box(new Rect(6 * screenScale.x, 7 * screenScale.y, 4 * screenScale.x, 1 * screenScale.y), "Exit");
         }
-        
+
+
     }
      
 
