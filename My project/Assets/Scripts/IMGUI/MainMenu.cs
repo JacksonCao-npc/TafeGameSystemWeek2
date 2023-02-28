@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
   
     public GameObject cube;
 
-    public int colorIndex = Random.Range(0, 4);
+    
     public bool startSpin;
 
     public float cubeMoveSpeed;
@@ -22,13 +22,15 @@ public class MainMenu : MonoBehaviour
     private Renderer cubeRender;
     private float _hSliderValue = 1.0f;
 
+    #region StartGetComponent
     private void Start()
     {
+
         cubeAnimator = GameObject.Find("Cube").GetComponent<Animator>();
         cubeRigid = GameObject.Find("Cube").GetComponent<Rigidbody>();
         cubeRender=GameObject.Find("Cube").GetComponent<Renderer>();
     }
-
+    #endregion 
     void OnGUI()
     {
         screenScale.x = Screen.width / 16;
@@ -48,7 +50,7 @@ public class MainMenu : MonoBehaviour
             }
         }
 
-        
+        #region TtileMenu
         if (titleMenu)
         {
             //Main Panel
@@ -66,11 +68,12 @@ public class MainMenu : MonoBehaviour
             GUI.Button(new Rect(6 * screenScale.x, 5 * screenScale.y, 4 * screenScale.x, 1 * screenScale.y), "Load Game");
             GUI.Button(new Rect(6 * screenScale.x, 7 * screenScale.y, 4 * screenScale.x, 1 * screenScale.y), "Exit Game");
         }
+        #endregion
 
-
+        #region PlayMode
         // Into PlayMode;
         //Generate a random spin for cube 
-          float spinSpeed = Random.Range(10, 20);
+        float spinSpeed = Random.Range(10, 20);
 
         //Generate an array for different color
         Color[] cubeColor = new Color[4];
@@ -79,8 +82,11 @@ public class MainMenu : MonoBehaviour
         cubeColor[2] = Color.magenta;
         cubeColor[3] = Color.yellow;
 
+        int colorIndex = Random.Range(0,4);
+
         //create a random number for cube color so it can randomly change color.
         
+
         if (playMode)
         {
             //when press the Spin button, cube starts to spin. 
@@ -118,8 +124,9 @@ public class MainMenu : MonoBehaviour
             }
         }
 
+        #endregion
 
-
+#region ExitMode
         if (exitMode)
         {
             GUI.Button(new Rect(6 * screenScale.x, 5 * screenScale.y, 4 * screenScale.x, 2 * screenScale.y), "Are U Sure");
@@ -136,8 +143,8 @@ public class MainMenu : MonoBehaviour
 
     }
 
-    
-     
+#endregion 
+
 
 
 }
