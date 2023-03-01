@@ -49,7 +49,7 @@ public class MainMenu : MonoBehaviour
                 }
             }
         }
-
+        
         #region TtileMenu
         if (titleMenu)
         {
@@ -66,7 +66,11 @@ public class MainMenu : MonoBehaviour
             }
 
             GUI.Button(new Rect(6 * screenScale.x, 5 * screenScale.y, 4 * screenScale.x, 1 * screenScale.y), "Load Game");
-            GUI.Button(new Rect(6 * screenScale.x, 7 * screenScale.y, 4 * screenScale.x, 1 * screenScale.y), "Exit Game");
+           if( GUI.Button(new Rect(6 * screenScale.x, 7 * screenScale.y, 4 * screenScale.x, 1 * screenScale.y), "Exit Game"))
+            {
+                titleMenu = false;
+                exitMode = true;
+            }
         }
         #endregion
 
