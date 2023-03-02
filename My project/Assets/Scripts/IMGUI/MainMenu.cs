@@ -21,6 +21,9 @@ public class MainMenu : MonoBehaviour
     private Rigidbody cubeRigid;
     private Renderer cubeRender;
     private float _hSliderValue = 1.0f;
+    
+
+  
 
     #region StartGetComponent
     private void Start()

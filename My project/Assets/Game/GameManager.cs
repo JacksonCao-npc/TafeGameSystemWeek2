@@ -5,7 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public PlayerGameState gameState = PlayerGameState.Alive;
+    public EnemyGameState enemyState = EnemyGameState.Petrol;
     private static GameManager _gameManager;
+ 
     
     public static GameManager Instance
     {
@@ -43,4 +45,11 @@ public enum PlayerGameState
     Alive,
     MenuOpen,
     Paused
+}
+
+public enum EnemyGameState
+{
+    Petrol,
+    Following,
+    Idle
 }

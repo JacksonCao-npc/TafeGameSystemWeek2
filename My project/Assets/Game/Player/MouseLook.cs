@@ -43,8 +43,6 @@ public class MouseLook : MonoBehaviour
             {
                 transform.Rotate(0, Input.GetAxis("Mouse X") * sensitivity, 0);
             }
-
-
             else
             {
                 _rotationY += Input.GetAxis("Mouse Y") * sensitivity;
@@ -60,4 +58,5 @@ public class MouseLook : MonoBehaviour
             }
         }
     }
+    
 }
